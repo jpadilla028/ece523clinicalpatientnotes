@@ -19,6 +19,7 @@ class Preprocessing:
         self.removeSpecialChars()
 
     def removeORs(self):
+        self.fDF['feature_text'].apply(lambda x: x.lower())
         for i in range(len(self.fDF['feature_text'])):
             self.fDF.at[i, 'feature_text'] = self.fDF['feature_text'][i].replace("-OR-", ";-").replace("-", " ")
 
@@ -32,7 +33,6 @@ class Preprocessing:
             self.pnDF.at[i, 'pn_history'] = self.pnDF['pn_history'][i].replace("-", " ")
             self.pnDF.at[i, 'pn_history'] = self.pnDF['pn_history'][i].replace("/", " ")
             self.pnDF.at[i, 'pn_history'] = self.pnDF['pn_history'][i].replace("\\", " ")
-            self.pnDF.at[i, 'pn_history'] = self.pnDF['pn_history'][i].replace("\n", " ")
             self.pnDF.at[i, 'pn_history'] = self.pnDF['pn_history'][i].replace("\'", "")
             self.pnDF.at[i, 'pn_history'] = self.pnDF['pn_history'][i].replace("\"", "")
             self.pnDF.at[i, 'pn_history'] = self.pnDF['pn_history'][i].replace(",", " ")
