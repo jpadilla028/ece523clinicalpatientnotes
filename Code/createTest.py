@@ -30,6 +30,7 @@ for line in file:
 file.close()
 
 testList = []
+testList.append("id" + ',' + "case_num" + ',' + "pn_num" + ',' + "feature_num")
 for pn in patientNotesList:
     for feature in featuresList:
         id = pn[0] + "_" + feature[0]
